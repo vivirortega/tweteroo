@@ -30,10 +30,14 @@ app.post("/tweets", (req, res) => {
   };
 
   tweets.push(tweetPost); 
-  console.log(tweetPost)
   res.send("Ok");
 })
 
+app.get("/tweets", (req, res) => {
+    const tweets10 = tweets.slice(-10);
+    tweets10.reverse();
+    res.send(tweets10); 
+})
 
 app.listen(5000, () => console.log("Server working"));
 
